@@ -1,0 +1,689 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="medical_library.db">
+  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.14">
+    <root id="1">
+      <ServerVersion>3.25.1</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="main">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <collation id="3" parent="1" name="BINARY"/>
+    <collation id="4" parent="1" name="NOCASE"/>
+    <collation id="5" parent="1" name="RTRIM"/>
+    <table id="6" parent="2" name="sqlite_master">
+      <System>1</System>
+    </table>
+    <table id="7" parent="2" name="sqlite_sequence">
+      <System>1</System>
+    </table>
+    <table id="8" parent="2" name="t_complication"/>
+    <table id="9" parent="2" name="t_department"/>
+    <table id="10" parent="2" name="t_disease"/>
+    <table id="11" parent="2" name="t_disease_or_pa"/>
+    <table id="12" parent="2" name="t_disease_sy"/>
+    <table id="13" parent="2" name="t_look_and_ask"/>
+    <table id="14" parent="2" name="t_medical_noun"/>
+    <table id="15" parent="2" name="t_organ"/>
+    <table id="16" parent="2" name="t_part"/>
+    <table id="17" parent="2" name="t_patient"/>
+    <table id="18" parent="2" name="t_person_chat"/>
+    <table id="19" parent="2" name="t_question"/>
+    <table id="20" parent="2" name="t_symptom"/>
+    <table id="21" parent="2" name="t_symptom_di"/>
+    <table id="22" parent="2" name="t_symptom_or_pa"/>
+    <column id="23" parent="6" name="type">
+      <Position>1</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="24" parent="6" name="name">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="25" parent="6" name="tbl_name">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="26" parent="6" name="rootpage">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="27" parent="6" name="sql">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="28" parent="7" name="name">
+      <Position>1</Position>
+    </column>
+    <column id="29" parent="7" name="seq">
+      <Position>2</Position>
+    </column>
+    <column id="30" parent="8" name="complication_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="31" parent="8" name="t_disease_id">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="32" parent="8" name="complication_name">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="33" parent="8" name="complication_association_disease_id">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="34" parent="8" name="complication_association_disease_name">
+      <Position>5</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="35" parent="8">
+      <ColNames>complication_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="36" parent="9" name="department_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="37" parent="9" name="department_name">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="38" parent="9" name="department_intro">
+      <Position>3</Position>
+      <DataType>VARCHAR(1000)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="39" parent="9" name="department_address">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="40" parent="9">
+      <ColNames>department_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="41" parent="10" name="disease_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="42" parent="10" name="disease_name">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="43" parent="10" name="disease_trans">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="44" parent="10" name="disease_alias">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="45" parent="10" name="disease_intro">
+      <Position>5</Position>
+      <DataType>VARCHAR(2000)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="46" parent="10" name="disease_incidence_site">
+      <Position>6</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="47" parent="10" name="disease_contagious">
+      <Position>7</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="48" parent="10" name="disease_multiple_people">
+      <Position>8</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="49" parent="10" name="disease_symptom_early">
+      <Position>9</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="50" parent="10" name="disease_symptom_late">
+      <Position>10</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="51" parent="10" name="disease_symptom_related">
+      <Position>11</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="52" parent="10" name="disease_symptom_intro">
+      <Position>12</Position>
+      <DataType>VARCHAR(2000)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="53" parent="10" name="disease_complication">
+      <Position>13</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="54" parent="10" name="disease_complication_intro">
+      <Position>14</Position>
+      <DataType>VARCHAR(2000)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="55" parent="10" name="disease_visit_department">
+      <Position>15</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="56" parent="10" name="disease_cure_rate">
+      <Position>16</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="57" parent="10">
+      <ColNames>disease_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="58" parent="11" name="disease_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="59" parent="11" name="t_disease_id">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="60" parent="11" name="disease_name">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="61" parent="11" name="disease_trans">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="62" parent="11" name="organ_name">
+      <Position>5</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="63" parent="11" name="part_name">
+      <Position>6</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="64" parent="11">
+      <ColNames>disease_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="65" parent="12" name="disease_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="66" parent="12" name="t_disease_id">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="67" parent="12" name="disease_name">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="68" parent="12" name="disease_accom_sy">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="69" parent="12" name="disease_ossible_sy_id">
+      <Position>5</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="70" parent="12" name="disease_ossible_sy_name">
+      <Position>6</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="71" parent="12">
+      <ColNames>disease_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="72" parent="13" name="look_and_ask_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="73" parent="13" name="look_and_ask_uid">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="74" parent="13" name="look_and_ask_date">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="75" parent="13" name="look_and_ask_score">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="76" parent="13" name="look_and_ask_diagnostic_result">
+      <Position>5</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <index id="77" parent="13" name="sqlite_autoindex_t_look_and_ask_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>look_and_ask_id
+look_and_ask_uid</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="78" parent="13">
+      <ColNames>look_and_ask_id
+look_and_ask_uid</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_t_look_and_ask_1</UnderlyingIndexName>
+    </key>
+    <column id="79" parent="14" name="noun_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="80" parent="14" name="noun_name">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="81" parent="14">
+      <ColNames>noun_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="82" parent="15" name="organ_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="83" parent="15" name="organ_name">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="84" parent="15" name="organ_own_part">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="85" parent="15">
+      <ColNames>organ_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="86" parent="16" name="part_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="87" parent="16" name="part_name">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="88" parent="16" name="part_contained_organs">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="89" parent="16">
+      <ColNames>part_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="90" parent="17" name="patient_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="91" parent="17" name="patient_uid">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="92" parent="17" name="patient_date">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="93" parent="17" name="patient_name">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="94" parent="17" name="patient_gender">
+      <Position>5</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="95" parent="17" name="patient_age">
+      <Position>6</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="96" parent="17" name="patient_part_organ">
+      <Position>7</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="97" parent="17" name="patient_symptom">
+      <Position>8</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="98" parent="17" name="patient_disease">
+      <Position>9</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="99" parent="17">
+      <ColNames>patient_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="100" parent="18" name="person_chat_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="101" parent="18" name="person_chat_uid">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="102" parent="18" name="person_chat_message">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="103" parent="18" name="person_chat_is_me_send">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="104" parent="18" name="person_chat_date">
+      <Position>5</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="105" parent="18" name="person_chat_read_message">
+      <Position>6</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="106" parent="18">
+      <ColNames>person_chat_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="107" parent="19" name="question_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="108" parent="19" name="question_uid">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="109" parent="19" name="question_string">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="110" parent="19" name="question_date">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="111" parent="19" name="answer_string">
+      <Position>5</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="112" parent="19" name="question_all_word">
+      <Position>6</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="113" parent="19" name="question_burden_keyword">
+      <Position>7</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="114" parent="19" name="question_medicine_keyword">
+      <Position>8</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="115" parent="19">
+      <ColNames>question_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="116" parent="20" name="symptom_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="117" parent="20" name="symptom_name">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="118" parent="20" name="symptom_trans">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="119" parent="20" name="symptom_intro">
+      <Position>4</Position>
+      <DataType>VARCHAR(2000)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="120" parent="20" name="symptom_cause">
+      <Position>5</Position>
+      <DataType>VARCHAR(2000)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="121" parent="20" name="symptomatic_details_content">
+      <Position>6</Position>
+      <DataType>VARCHAR(3000)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="122" parent="20" name="suggested_treatment_department">
+      <Position>7</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <index id="123" parent="20" name="IDX_6F1C3BB721">
+      <ColNames>symptom_id</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="124" parent="20">
+      <ColNames>symptom_id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>IDX_6F1C3BB721</UnderlyingIndexName>
+    </key>
+    <column id="125" parent="21" name="symptom_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="126" parent="21" name="t_symptom_id">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="127" parent="21" name="symptom_name">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="128" parent="21" name="symptom_association_disease_id">
+      <Position>4</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="129" parent="21" name="symptom_association_disease_name">
+      <Position>5</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="130" parent="21">
+      <ColNames>symptom_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="131" parent="22" name="symptom_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="132" parent="22" name="t_symptom_id">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="133" parent="22" name="symptom_name">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="134" parent="22" name="symptom_trans">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="135" parent="22" name="organ_name">
+      <Position>5</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="136" parent="22" name="part_name">
+      <Position>6</Position>
+      <DataType>VARCHAR(255)|0s</DataType>
+      <Collation>NOCASE</Collation>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="137" parent="22">
+      <ColNames>symptom_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
